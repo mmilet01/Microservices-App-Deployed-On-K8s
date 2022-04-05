@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  border-bottom: 1px solid black;
+  margin-bottom: 30px;
+}
+
+.logo {
+  text-decoration: none;
+  color: gray;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: auto 0;
+}
+
+.icon {
+  color: black;
+  height: 30px !important;
+  width: 30px !important;
+}
+
+.notificationIcon {
+  cursor: pointer;
+  color: black;
+  height: 20px !important;
+  width: 20px !important;
+}
+
+.plus {
+  margin-left: 25px;
+  padding-top: 3px;
+  color: black;
+  height: 22px !important;
+  width: 22px !important;
+}
+
+.logoImg {
+  padding-top: 15px;
+  padding-right: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}

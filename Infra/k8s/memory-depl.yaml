@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-depl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memories
+  template:
+    metadata:
+      labels:
+        app: memories
+    spec:
+      containers:
+        - name: memories
+          image: us.gcr.io/forward-emitter-321609/memory-service
+          env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: "http://nats-srv:4222"
+            - name: NATS_CLUSTER_ID
+              value: traveling-dev
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: memory-srv
+spec:
+  selector:
+    app: memories
+  ports:
+    - name: memory
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

@@ -1,0 +1,62 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memoryCard {
+  padding-bottom: 70px;
+}
+
+.imageHeader {
+  display: flex;
+  align-items: center;
+}
+
+.random {
+  display: flex;
+  flex-direction: column;
+}
+
+.memoryImage {
+  width: 500px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.friendProfileImage {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.memmory-card-header {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottomSection {
+  padding: 5px;
+}
+
+.description {
+  max-width: 600px;
+  overflow-wrap: break-word;
+}
+
+.memoryTitle {
+  font-weight: 600;
+  font-size: large;
+}

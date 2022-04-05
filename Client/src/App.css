@@ -1,0 +1,73 @@
+.App {
+  padding: 0px;
+  margin: 0px 300px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.primary-color {
+  color: black;
+}
+
+.secondary-color {
+  color: red;
+}
+
+.d-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.d-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.margin-0-auto {
+  margin: 0 auto;
+}
+
+.margin-auto-0 {
+  margin: auto 0;
+}
+
+.margin-5 {
+  margin: 5px;
+}
+
+.margin-10 {
+  margin: 10px;
+}
+
+.margin-15 {
+  margin: 15px;
+}
+
+.margin-left-10 {
+  margin-left: 10px;
+}
+
+.margin-left-25 {
+  margin-left: 25px;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.align-center {
+  align-items: center;
+}

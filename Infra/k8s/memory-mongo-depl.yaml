@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memory-mongo
+  template:
+    metadata:
+      labels:
+        app: memory-mongo
+    spec:
+      containers:
+        - name: memory-mongo
+          image: mongo
+          volumeMounts:
+            - name: mongodb-pvc-memory
+              mountPath: /data/db
+          ports:
+            - containerPort: 27017
+              protocol: TCP
+      volumes:
+        - name: mongodb-pvc-memory
+          persistentVolumeClaim:
+            claimName: mongodb-pvc-memory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: memory-mongo-srv
+spec:
+  selector:
+    app: memory-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

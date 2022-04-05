@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users
+  # tell the deployment how to find all the pods it should create
+  template:
+    metadata:
+      labels:
+        app: users
+    # tell the pod how to behave
+    spec:
+      containers:
+        # name for logging purposes
+        - name: users
+          image: us.gcr.io/forward-emitter-321609/user-service
+          env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: "http://nats-srv:4222"
+            - name: NATS_CLUSTER_ID
+              value: traveling-dev
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+# our label name - can be anything
+# usually we have 1 to 1 relationship between services and deployments
+
+---
+# type is clusterIP service by default
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-srv
+spec:
+  selector:
+    app: users
+  ports:
+    - name: users
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

@@ -1,0 +1,41 @@
+.profile {
+  position: absolute;
+  top: 42px;
+  right: 8px;
+  background-color: lightblue;
+  opacity: 0.8;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid lightblue;
+  opacity: 0.8;
+  position: absolute;
+  right: 6px;
+  top: -7px;
+}
+
+.myProfile {
+  position: relative;
+}
+
+.links {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.singleLink {
+  padding-bottom: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+}
+
+.humanIcon {
+  cursor: pointer;
+}
